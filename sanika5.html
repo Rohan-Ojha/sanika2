@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanika Hissal | Mechanical Engineering Portfolio</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+:root {
+    --bg: #080808;
+    --red: #ff1e1e;
+    --red-glow: rgba(255, 30, 30, 0.4);
+    --text: #ffffff;
+    --card: #121212;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+.red-text { color: var(--red); }
+.section-title { text-align: center; font-family: 'Space Grotesk'; font-size: 2.8rem; margin: 4rem 0; text-transform: uppercase; letter-spacing: 2px; }
+.gradient-text { background: linear-gradient(90deg, #ff1e1e, #8b0000); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+nav { display: flex; justify-content: space-between; padding: 1.5rem 10%; position: fixed; width: 100%; top: 0; z-index: 100; background: rgba(8,8,8,0.95); backdrop-filter: blur(10px); border-bottom: 1px solid #222; }
+.logo { font-family: 'Space Grotesk'; font-weight: 700; font-size: 1.5rem; }
+.logo span { color: var(--red); }
+.nav-links { display: flex; list-style: none; gap: 2rem; }
+.nav-links a { text-decoration: none; color: var(--text); font-size: 0.85rem; letter-spacing: 1px; transition: 0.3s; text-transform: uppercase; }
+.nav-links a:hover { color: var(--red); }
+
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; padding: 0 10%; }
+.hero-content { display: flex; align-items: center; gap: 4rem; }
+.photo-wrapper { position: relative; animation: float 6s ease-in-out infinite; }
+.photo-container { position: relative; width: 300px; height: 300px; }
+.profile-photo { width: 100%; height: 100%; object-fit: cover; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; border: 3px solid var(--red); box-shadow: 0 0 30px var(--red-glow); position: relative; z-index: 2; }
+.photo-ring { position: absolute; inset: -15px; border: 2px dashed var(--red); border-radius: 50%; animation: spin 20s linear infinite; opacity: 0.3; }
+
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+.hero-text h1 { font-size: 4.5rem; font-family: 'Space Grotesk'; line-height: 1; margin: 1rem 0; }
+.badge { color: var(--red); border: 1px solid var(--red); padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; }
+.btn { padding: 1rem 2.2rem; border-radius: 4px; text-decoration: none; font-weight: 700; display: inline-block; margin-top: 1.5rem; transition: 0.3s; }
+.red-glow-btn { background: var(--red); color: white; box-shadow: 0 0 20px var(--red-glow); }
+.red-glow-btn:hover { transform: scale(1.05); box-shadow: 0 0 40px var(--red); }
+.btn-outline { border: 1px solid var(--red); color: var(--red); margin-left: 1rem; }
+
+.achievement-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; padding: 0 10%; }
+.achieve-card { background: var(--card); padding: 2rem; border-radius: 12px; display: flex; align-items: center; gap: 1.5rem; width: 360px; border: 1px solid #222; transition: 0.3s; }
+.achieve-card:hover { border-color: var(--red); transform: translateY(-5px); }
+.achieve-card i { font-size: 2.5rem; color: var(--red); }
+
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; padding: 0 10%; }
+.bar { background: #222; height: 8px; border-radius: 10px; margin-top: 10px; overflow: hidden; }
+.fill { background: var(--red); height: 100%; box-shadow: 0 0 10px var(--red); transition: 1.5s ease-out; }
+.tag-cloud { display: flex; flex-wrap: wrap; gap: 12px; }
+.tag { background: #1a1a1a; padding: 10px 18px; border-radius: 5px; border: 1px solid #333; font-size: 0.9rem; transition: 0.3s; }
+.tag:hover { border-color: var(--red); color: var(--red); background: rgba(255,30,30,0.05); }
+
+.hobby-masonry { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 160px; gap: 15px; padding: 0 10%; }
+.hobby-item { background: #1a1a1a; border-radius: 15px; position: relative; overflow: hidden; border: 1px solid #333; }
+.hobby-item.large { grid-row: span 2; }
+.hobby-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.7); display: flex; flex-direction: column; justify-content: center; align-items: center; transition: 0.4s; cursor: pointer; }
+.hobby-overlay i { font-size: 2.2rem; color: var(--red); margin-bottom: 10px; }
+.hobby-item:hover .hobby-overlay { background: rgba(255, 30, 30, 0.85); }
+.hobby-item:hover .hobby-overlay i, .hobby-item:hover h3 { color: white; }
+
+.contact-wrapper { display: flex; align-items: center; justify-content: center; gap: 5rem; padding: 4rem 10%; }
+.contact-circle { width: 300px; height: 300px; border: 2px dashed var(--red); border-radius: 50%; display: flex; align-items: center; justify-content: center; animation: spin 25s linear infinite; }
+.inner-content { animation: spin 25s linear infinite reverse; text-align: center; }
+.inner-content h3 { font-family: 'Space Grotesk'; color: var(--red); font-size: 2rem; margin-bottom: 0.5rem; }
+.contact-details p { font-size: 1.3rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 15px; }
+
+footer { text-align: center; padding: 4rem 0; border-top: 1px solid #222; margin-top: 4rem; color: #777; }
+
+.reveal { opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+    .hero-content { flex-direction: column; text-align: center; gap: 2rem; }
+    .hero-text h1 { font-size: 3rem; }
+    .nav-links { display: none; }
+    .contact-wrapper { flex-direction: column; gap: 3rem; }
+}
+    </style>
+</head>
+
+<body class="dark-mode">
+
+<nav>
+    <div class="logo">SANIKA<span>.H</span></div>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#achievements">Milestones</a></li>
+        <li><a href="#hobbies">Life</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-content reveal">
+        <div class="photo-wrapper">
+            <div class="photo-container">
+                <img src="sanika.jpg" alt="Sanika Hissal" class="profile-photo" onerror="this.src='https://via.placeholder.com/320x320?text=Sanika+Hissal'">
+                <div class="photo-ring"></div>
+            </div>
+        </div>
+        <div class="hero-text">
+            <span class="badge">Mechanical Engineering @ PCCOE Pune</span>
+            <h1>Engineering <span class="gradient-text">Precision</span></h1>
+            <p>96.28 Percentile (MHT-CET) | CAD Specialist | Modern Manufacturing</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn red-glow-btn">Hire Me</a>
+                <a href="mailto:Sanikahissal2006@gmail.com" class="btn btn-outline">Email Me</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="achievements" class="reveal">
+    <h2 class="section-title">Academic <span class="red-text">Milestones</span></h2>
+    <div class="achievement-container">
+        <div class="achieve-card">
+            <i class="fas fa-medal"></i>
+            <div>
+                <h3>96.28 %ile</h3>
+                <p>MHT-CET Excellence</p>
+            </div>
+        </div>
+        <div class="achieve-card">
+            <i class="fas fa-university"></i>
+            <div>
+                <h3>PCCOE Pune</h3>
+                <p>Mechanical Engineering</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="skills" class="reveal">
+    <h2 class="section-title">Technical <span class="red-text">Arsenal</span></h2>
+    <div class="skills-grid">
+        <div class="skill-group">
+            <h3>Software Proficiency</h3>
+            <ul>
+                <li>AutoCAD <div class="bar"><div class="fill" style="width: 90%"></div></div></li>
+                <li>CATIA <div class="bar"><div class="fill" style="width: 85%"></div></div></li>
+                <li>SolidWorks <div class="bar"><div class="fill" style="width: 80%"></div></div></li>
+                <li>Python <div class="bar"><div class="fill" style="width: 75%"></div></div></li>
+            </ul>
+        </div>
+        <div class="skill-group">
+            <h3>Workshop Skills</h3>
+            <div class="tag-cloud">
+                <span class="tag">CNC Machining</span>
+                <span class="tag">3D Printing</span>
+                <span class="tag">Thermal Analysis</span>
+                <span class="tag">Lathe Operations</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="hobbies" class="reveal">
+    <h2 class="section-title">Personal <span class="red-text">Fuel</span></h2>
+    <div class="hobby-masonry">
+        <div class="hobby-item large">
+            <div class="hobby-overlay"><i class="fas fa-utensils"></i><h3>Cooking</h3></div>
+        </div>
+        <div class="hobby-item">
+            <div class="hobby-overlay"><i class="fas fa-volleyball"></i><h3>Sports</h3></div>
+        </div>
+        <div class="hobby-item">
+            <div class="hobby-overlay"><i class="fas fa-brain"></i><h3>Problem Solving</h3></div>
+        </div>
+        <div class="hobby-item">
+            <div class="hobby-overlay"><i class="fas fa-gamepad"></i><h3>Gaming</h3></div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="reveal">
+    <div class="contact-wrapper">
+        <div class="contact-visual">
+            <div class="contact-circle">
+                <div class="inner-content">
+                    <h3>Connect</h3>
+                    <p>Sanika Hissal</p>
+                    <span>Pune, India</span>
+                </div>
+            </div>
+        </div>
+        <div class="contact-details">
+            <p><i class="fas fa-envelope red-text"></i> Sanikahissal2006@gmail.com</p>
+            <p><i class="fas fa-location-dot red-text"></i> PCCOE, Pune, Maharashtra</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Sanika Hissal | Precision Mechanical Portfolio</p>
+</footer>
+
+<script>
+const revealOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(el => revealOnScroll.observe(el));
+
+document.addEventListener('mousedown', (e) => {
+    const spark = document.createElement('div');
+    spark.style.cssText = `
+        position: fixed;
+        width: 12px;
+        height: 12px;
+        background: #ff1e1e;
+        border-radius: 50%;
+        left: ${e.clientX}px;
+        top: ${e.clientY}px;
+        pointer-events: none;
+        box-shadow: 0 0 15px #ff1e1e;
+        z-index: 9999;
+    `;
+    document.body.appendChild(spark);
+
+    spark.animate([
+        { transform: 'scale(1)', opacity: 1 },
+        { transform: 'scale(6)', opacity: 0 }
+    ], { duration: 600, easing: 'ease-out' }).onfinish = () => spark.remove();
+});
+
+document.addEventListener("mousemove", (e) => {
+    const photo = document.querySelector(".photo-wrapper");
+    if (photo) {
+        let x = (window.innerWidth / 2 - e.pageX) / 40;
+        let y = (window.innerHeight / 2 - e.pageY) / 40;
+        photo.style.transform = `translate(${x}px, ${y}px)`;
+    }
+});
+</script>
+
+</body>
+</html>
